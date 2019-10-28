@@ -1,0 +1,44 @@
+---
+title: "Seattle Airbnb Report"
+output: html_document
+---
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+# echo = FALSE prevents the output from running this code from being displayed in the final html file.
+# Do all the necessary loading and sourcing first
+library(knitr)
+source("./analysis.R")
+```
+
+## Seattle Airbnbs
+
+There are `r total_listings` Airbnb listings in Seattle.
+The average price of an Airbnb in Seattle is $`r avg_price`.
+There have been `r total_reviews` reviews written about Airbnbs in Seattle.
+
+## Interactive Map of Prices of Airbnbs in the UDistrict
+
+```{r echo=FALSE, warning=FALSE}
+
+price_map
+
+```
+
+## Graph of Avg Number Reviews Written Per Neighborhood
+
+```{r echo=FALSE, warning=FALSE}
+
+reviews_graph
+
+```
+
+## Summary Table of Average Prices Per Neighborhood
+
+```{r echo=FALSE, warning=FALSE}
+
+kable(price_table,
+      row.names = FALSE,
+      col.names = c("Neighborhood", "Average Price"))
+
+```
+
